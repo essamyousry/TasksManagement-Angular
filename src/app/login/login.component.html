@@ -1,0 +1,36 @@
+<header class="header">Bruce Fox</header>
+<div id="mainDIV" class="col-md-8 mx-auto no-sidebar">
+    <div class="text-center container-fluid">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+            <div class="form-group">
+                    <label class="label">Username: &nbsp; &nbsp;
+                            <mat-form-field>
+                                <input class="form-control" formControlName="Username" matInput>
+                                <mat-error *ngIf="!formGroup.controls['Username'].valid && formGroup.controls['Username'].touched">
+                                    {{ alertTitle }}
+                                </mat-error>
+                            </mat-form-field>
+                    </label>
+            </div>
+            <div class="form-group">
+                    <label class="label">Password: &nbsp; &nbsp;
+                            <mat-form-field>
+                                <input class="form-control" type="Password" formControlName="Password" matInput>
+                                <mat-error *ngIf="!formGroup.controls['Password'].valid && formGroup.controls['Password'].touched">
+                                    {{ alertTitle }}
+                                </mat-error>
+                            </mat-form-field>
+                    </label>
+            </div>
+            <div [class.disabled]="!this.Error" class="alert alert-danger" role="alert">
+                    {{ ErrorMessage }}
+                  </div>
+            <button mat-raised-button class="submitButton text-center"
+                                    color="primary"
+                                    [disabled]="!formGroup.valid"
+                                    type="submit">Login
+            </button><br><br>
+            <a [routerLink]="['../', 'register']">No Account? Register Here</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<header class="header">View Task</header>
+<div>
+    <span>
+       <mat-icon class="pull-right close-icon" (click)="onCloseDialog()">close</mat-icon>
+    </span>
+    <label>Task ID: <p>{{ TaskID }}</p></label><br>
+    <label>Quote Type: <p>{{ QuoteType }}</p></label><br>
+    <label>Quote Number: <p>{{ QuoteNumber }}</p></label><br>
+    <label>Task: <p>{{ TaskName }}</p></label><br>
+    <label>Contact: <p>{{ Contact }}</p></label><br>
+    <label>Due Date: <p>{{ DueDate | DateConvert}}</p></label>
+</div>

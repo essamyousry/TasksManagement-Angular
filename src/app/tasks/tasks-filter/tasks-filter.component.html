@@ -1,0 +1,16 @@
+<div class="filterbar">
+    <div class="orderby">
+        <label>Order By:&nbsp;</label>
+        <select (change)="getSelected($event.target.value)">
+            <option *ngFor="let option of options" [value]="option" >{{ option }}</option>
+        </select>
+    </div>
+    <div class="orderchoice">
+        <label class="filterCheckbox">Descending: &nbsp;</label>
+        <input type="checkbox" [checked]="checked" (change)="getSelected()">
+    </div>
+    <div class="search">
+        <label>Search:&nbsp;</label>
+        <input type="text" (keyup)="getSearch($event.target.value)">
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<header class="header">Update Task</header>
+<div class="container-fluid fullDIV">
+    <span>
+       <mat-icon class="pull-right close-icon" (click)="onCloseDialog()">close</mat-icon>
+    </span>
+    <form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+        <div>
+            <label class="quotelabel">Status: &nbsp; &nbsp;
+                <mat-form-field>
+                    <mat-select formControlName="status" matInput>
+                        <mat-option value="Open">Open</mat-option>
+                        <mat-option value="Close">Close</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="!formGroup.controls['status'].valid && formGroup.controls['status'].touched">
+                        {{ alertTitle }}
+                    </mat-error>
+                </mat-form-field>
+            </label><br>
+            <label class="quotelabel">Quote Type: &nbsp; &nbsp;
+                <mat-form-field>
+                    <input formControlName="quotetype" matInput>
+                    <mat-error *ngIf="!formGroup.controls['quotetype'].valid && formGroup.controls['quotetype'].touched">
+                        {{ alertTitle }}
+                    </mat-error>
+                </mat-form-field>
+            </label>
+            <label class="quotenumlabel">Quote Num: &nbsp; &nbsp;
+                <mat-form-field class="smallInput">
+                    <input formControlName="quotenumber" matInput>
+                    <mat-error *ngIf="!formGroup.controls['quotenumber'].valid && formGroup.controls['quotenumber'].touched">
+                        {{ getErrorQuoteNumber() }}
+                    </mat-error>
+                </mat-form-field>
+            </label>
+        </div>
+        <label>Task Type: &nbsp; &nbsp;
+            <mat-form-field>
+                <input formControlName="tasktype" matInput>
+                <mat-error *ngIf="!formGroup.controls['tasktype'].valid && formGroup.controls['tasktype'].touched">
+                    {{ alertTitle }}
+                </mat-error>
+            </mat-form-field>
+        </label><br>
+        <label>Contact Name: &nbsp; &nbsp;
+            <mat-form-field>
+                <input formControlName="contact" matInput>
+                <mat-error *ngIf="!formGroup.controls['contact'].valid && formGroup.controls['contact'].touched">
+                    {{ alertTitle }}
+                </mat-error>
+            </mat-form-field>
+        </label><br>
+        <label class="quotetype">Due Date: &nbsp; &nbsp;
+            <input class="dateinput" formControlName="duedate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <input class="timeinput" type="time" formControlName="time" matInput>
+            <mat-error *ngIf="!formGroup.controls['duedate'].valid && formGroup.controls['duedate'].touched">
+                {{ getErrorDate() }}
+            </mat-error>
+        </label><br><br>
+        <label class="textarealabel">Task Description <br>
+            <mat-form-field>
+                <textarea rows="4" formControlName="task" matInput></textarea>
+            </mat-form-field>
+        </label><br><br>
+        <button mat-raised-button class="submitButton"
+                            color="primary"
+                            [disabled]="!formGroup.valid"
+                            type="submit">Update Task
+        </button>
+    </form>
+</div>

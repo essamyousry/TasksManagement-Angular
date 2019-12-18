@@ -1,0 +1,23 @@
+.headerBackground{
+    background: lightgrey;
+    height: 30px;
+}
+
+h5{
+    padding-left: 40px;
+    color: blue;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+.add{
+    background: green;
+    color: white;
+    float: right;
+}
+
+.logout{
+    background: red;
+    color: white;
+    float: right;
+}

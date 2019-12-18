@@ -1,0 +1,47 @@
+<app-tasks-filter (searchChange)="getSearch($event)" (valueChange)="getSelected($event)"></app-tasks-filter>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="QuoteNumber">
+    <th mat-header-cell *matHeaderCellDef> Quote Number </th>
+    <td class="quotenum" mat-cell *matCellDef="let element"> {{element.QuoteNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="QuoteType">
+    <th mat-header-cell *matHeaderCellDef> Quote Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.QuoteType}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="TaskName">
+    <th mat-header-cell *matHeaderCellDef> Task </th>
+    <td mat-cell *matCellDef="let element"> {{element.TaskName | Capitalize}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Contact">
+    <th mat-header-cell *matHeaderCellDef> Contact </th>
+    <td mat-cell *matCellDef="let element"> {{element.Contact}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="DueDate">
+    <th mat-header-cell *matHeaderCellDef> Due Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.DueDate | DateConvert}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="TaskType">
+    <th mat-header-cell *matHeaderCellDef> Task Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.TaskType}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="Options">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+        <i class="fa fa-eye" [id]="element.TaskID" (click)="ViewTask($event.target.id)"></i>&nbsp;
+        <i class="fa fa-edit" [id]="element.TaskID" (click)="EditTask($event.target.id)"></i>&nbsp;
+        <i class="fa fa-trash" [id]="element.TaskID" (click)="DeleteTask($event.target.id)"></i></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10]" (page)="onPageChange($event)"></mat-paginator>

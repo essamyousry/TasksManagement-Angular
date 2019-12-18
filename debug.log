@@ -1,0 +1,1 @@
+[1118/232952.235:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\essam\AppData\Local\Google\Chrome\User Data\Crashpad\reports\1767484f-54fb-44ec-a083-162f76eef66e.dmp: The process cannot access the file because it is being used by another process. (0x20)

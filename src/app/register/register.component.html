@@ -1,0 +1,42 @@
+<header class="header">Bruce Fox</header>
+<div id="mainDIV" class="col-md-8 mx-auto no-sidebar">
+    <div class="text-center container-fluid">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+            <div class="form-group">
+                    <label class="label">Email: &nbsp; &nbsp;
+                            <mat-form-field>
+                                <input type="email" class="form-control" formControlName="Email" matInput>
+                                <mat-error *ngIf="!formGroup.controls['Email'].valid && formGroup.controls['Email'].touched">
+                                    {{ getErrorEmail() }}
+                                </mat-error>
+                            </mat-form-field>
+                    </label>
+            </div>
+            <div class="form-group">
+                <label class="label">Password: &nbsp; &nbsp;
+                        <mat-form-field>
+                            <input class="form-control" type="password" formControlName="Password" matInput>
+                            <mat-error *ngIf="!formGroup.controls['Password'].valid && formGroup.controls['Password'].touched">
+                                {{ alertTitle }}
+                            </mat-error>
+                        </mat-form-field>
+                </label>
+            </div>
+            <div class="form-group">
+                    <label class="label">Confirm Password: &nbsp; &nbsp;
+                            <mat-form-field>
+                                <input class="form-control" type="password" formControlName="ConfirmPassword" matInput>
+                                <mat-error *ngIf="!formGroup.controls['ConfirmPassword'].valid && formGroup.controls['ConfirmPassword'].touched">
+                                    {{ getPasswordsMismatchError() }}
+                                </mat-error>
+                            </mat-form-field>
+                    </label>
+            </div>
+            <button mat-raised-button class="submitButton text-center"
+                                    color="primary"
+                                    [disabled]="!formGroup.valid"
+                                    type="submit">Register
+            </button><br><br>
+        </form>
+    </div>
+</div>

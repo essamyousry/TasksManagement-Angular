@@ -1,0 +1,21 @@
+.filterbar{
+    float: right;
+}
+
+.orderby{
+    display: inline-block;
+    margin-left: 10em;
+}
+
+.orderchoice{
+    display: inline-block;
+    margin-right: 4em;
+}
+
+.search{
+    display: inline-block;
+}
+
+.filterCheckbox{
+    margin-left: 1em;
+}

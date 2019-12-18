@@ -1,0 +1,79 @@
+.header{
+    background-color: blue;
+    font-size: 20px;
+    padding-left: 10px;
+    color: white;
+}
+
+::ng-deep.mat-dialog-container{
+    padding: 0;
+}
+
+span{
+    cursor: pointer;
+}
+
+input{
+    border: 1px solid;
+}
+
+label{
+    width: 50vw;
+}
+
+.quotelabel{
+    width: 30vw;
+}
+
+.dateinput{
+    width: 15vw;
+    margin-bottom: 0.5em;
+}
+
+.timeinput{
+    width: 8vw;
+    margin-bottom: 0.5em;
+}
+
+.quotenumlabel{
+    width: 20vw;
+}
+
+.smallLabel{
+    width: 20vw;
+}
+
+.smallInput{
+    width: 10vw;
+}
+
+.textarealabel{
+    width: 80vw;
+}
+
+textarea{
+    resize: none;
+    border: 1px solid;
+    width: 100%;
+}
+
+.fullDIV{
+    position: relative;
+}
+
+::ng-deep .mat-form-field{
+    width: 65%;
+}
+
+.submitButton{
+    position: absolute;
+    right: 0;
+    margin-right: 1em;
+    color: white;
+    background: green;
+}
+
+form{
+    margin-bottom: 0.5em;
+    padding-left: 20px;
+}
